@@ -1,14 +1,25 @@
+##
+## EPITECH PROJECT, 2019
+## makefile
+## File description:
+## makefile
+##
+
 NAME	= ai
 
-CC	= gcc
+CC	= gcc -g
 
 RM	= rm -f
 
-SRCS	= ./src/main.c 
+SRCS	= ./src/main.c 				\
+		  ./src/free_tab.c 			\
+		  ./src/str_to_word_tab.c 	\
+		  ./src/movement_ai.c
+
 
 OBJS	= $(SRCS:.c=.o)
 
-CFLAGS = -I ./include/
+CFLAGS = -I  ./include
 CFLAGS += -Wall -Wextra
 
 all: $(NAME)
@@ -25,3 +36,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
