@@ -13,8 +13,11 @@ char **my_str_to_word_array(char *str);
 float calc(float distance);
 void start(void);
 void move_car(float speed);
-void speed_change(data_car_t *tesla);
+void speed_change(data_t *tesla);
 void pass_line(void);
 void change_wheel(float value);
+void move_forward(float speed);
+char *my_strdup(char *str);
+int	my_strlen(char *str);
 
 #endif /* !PROTO_H_ */

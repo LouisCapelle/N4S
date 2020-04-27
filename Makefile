@@ -14,6 +14,8 @@ RM	= rm -f
 SRCS	= ./src/main.c 				\
 		  ./src/free_tab.c 			\
 		  ./src/str_to_word_tab.c 	\
+		  ./src/my_strdup.c 		\
+		  ./src/my_strlen.c 		\
 		  ./src/movement_ai.c
 
 

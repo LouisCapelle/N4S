@@ -8,7 +8,7 @@
 #ifndef STRUCT_H_
 #define STRUCT_H_
 
-typedef struct data_car_s
+typedef struct data_s
 {
     float front_right;
     float front;
@@ -16,6 +16,7 @@ typedef struct data_car_s
     int direction;
     int end;
     int rotate;
-}data_car_t;
+    char *result;
+}data_t;
 
 #endif /* !STRUCT_H_ */

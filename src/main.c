@@ -7,7 +7,7 @@
 
 #include "n4s.h"
 
-float get_info(data_car_t *tesla)
+float get_info(data_t *tesla)
 {
     float speed = 0.5;
     char *line = NULL;
@@ -26,12 +26,13 @@ float get_info(data_car_t *tesla)
     return (speed);
 }
 
-void pass_line(void)
+void get_result(data_t *tesla)
 {
     char *line = NULL;
     size_t len = 0;
 
     getline(&line, &len, stdin);
+    tesla->result = my_strdup(line);
     free(line);
     line = NULL;
 }
@@ -39,29 +40,34 @@ void pass_line(void)
 void start(void)
 {
     dprintf(1, "START_SIMULATION\n");
-    pass_line();
 }
 
-void end(data_car_t *tesla)
+void end(data_t *tesla)
 {
     if (tesla->end == 1) {
         dprintf(1, "STOP_SIMULATION\n");
-        pass_line();
     }
+}
+
+data_t *init_car(data_t *car)
+{
+    car->direction = 0;
+    car->end = 0;
+    car->front = 0;
+    car->front_left = 0;
+    car->front_right = 0;
+    car->result = NULL;
+    car->rotate = 0;
 }
 
 int main(void)
 {
-    data_car_t tesla = {0, 0, 0, 0, 0, 1};
+    data_t *car = malloc(sizeof(data_t));
 
+    car = init_car(car);
     start();
-    while (1 && tesla.end == 0) {
-        if (tesla.rotate == 1)
-            change_wheel(0.05 * tesla.direction);
-        dprintf(1, "GET_INFO_LIDAR\n");
-        get_info(&tesla);
-        end(&tesla);
-        speed_change(&tesla);
+    while (car->end == 0) {
+        move_forward(0.5);
     }
     return (0);
 }
