@@ -16,6 +16,7 @@ SRCS	= ./src/main.c 				\
 		  ./src/str_to_word_tab.c 	\
 		  ./src/my_strdup.c 		\
 		  ./src/my_strlen.c 		\
+		  ./src/communication.c		\
 		  ./src/movement_ai.c
 
 

@@ -12,16 +12,6 @@ float get_speed(data_t *tesla)
 
 }
 
-void move_forward(float speed)
-{
-    dprintf(1, "CAR_FORWARD:%.1f\n", speed);
-}
-
-void change_wheel(float value)
-{
-    dprintf(1, "WHEELS_DIR:%.1f\n", value);
-}
-
 void found_virage(data_t *tesla)
 {
     if (tesla->front_left < 100 || tesla->front_right < 100)

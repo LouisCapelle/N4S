@@ -37,18 +37,6 @@ void get_result(data_t *tesla)
     line = NULL;
 }
 
-void start(void)
-{
-    dprintf(1, "START_SIMULATION\n");
-}
-
-void end(data_t *tesla)
-{
-    if (tesla->end == 1) {
-        dprintf(1, "STOP_SIMULATION\n");
-    }
-}
-
 data_t *init_car(data_t *car)
 {
     car->direction = 0;
@@ -65,9 +53,10 @@ int main(void)
     data_t *car = malloc(sizeof(data_t));
 
     car = init_car(car);
-    start();
+    start_simulation();
     while (car->end == 0) {
         move_forward(0.5);
     }
+    end_simulation();
     return (0);
 }
