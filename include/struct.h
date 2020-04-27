@@ -17,6 +17,8 @@ typedef struct data_s
     int end;
     int rotate;
     char *result;
+    float middle;
+    float speed;
 }data_t;
 
 #endif /* !STRUCT_H_ */
