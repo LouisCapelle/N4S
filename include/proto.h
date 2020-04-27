@@ -22,7 +22,7 @@ void start_simulation(void);
 void end_simulation(void);
 void move_forward(float speed);
 void change_wheel(float value);
-void parse_lidar(char *result, data_t *car);
+void parse_lidar(char *line, data_t *car);
 void get_info_lidar(data_t *car);
 
 #endif /* !PROTO_H_ */

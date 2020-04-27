@@ -54,9 +54,10 @@ int main(void)
 
     car = init_car(car);
     start_simulation();
-    while (car->end == 0) {
+    while (1) {
+        get_info_lidar(car);
+        dprintf(2, "front: %f, front right: %f, front left: %f\n", car->front, car->front_right, car->front_left);
         move_forward(0.5);
     }
-    end_simulation();
     return (0);
 }
