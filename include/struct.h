@@ -19,10 +19,7 @@ typedef struct data_s
     char *result;
     float middle;
     float speed;
-    float angle_right;
-    float angle_left;
-    float keep_right;
-    float keep_left;
+    float angle;
 }data_t;
 
 #endif /* !STRUCT_H_ */

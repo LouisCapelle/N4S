@@ -49,6 +49,7 @@ void parse_lidar(char *line, data_t *car)
     car->front = atof(tab[19]);
     car->front_left = atof(tab[3]);
     car->front_right = atof(tab[34]);
+    car->middle = (car->front_left + car->front_right) / 2;
     free_tab(tab);
     free(line);
     line = NULL;
