@@ -23,7 +23,6 @@ data_t *init_car(data_t *car)
 
 void change_speed(data_t *car)
 {
-
     if (car->front > 2800 && (car->angle <= 0.08 || car->angle >= -0.08))
         car->speed = 0.5;
     else if (car->front > 1800 && (car->angle <= 0.1 || car->angle >= -0.1))
@@ -41,19 +40,28 @@ void change_speed(data_t *car)
 float get_angle(data_t *car)
 {
     if (car->front_left > car->front_right)
-        car->angle = 0.08;
+        car->angle = 0.02;
     else if (car->front_right > car->front_left)
-        car->angle = -0.08;
+        car->angle = -0.02;
     else
         car->angle = 0.0;
-    if (car->front_left < 350)
-        car->angle -= 0.15;
-    if (car->front_right < 350)
-        car->angle += 0.15;
-    if (car->front_left < 250)
-        car->angle -= 0.25;
-    if (car->front_right < 250)
-        car->angle += 0.25;
+    if (car->front_left < 350) {
+        car->speed -= 0.05;
+        car->angle -= 0.20;
+    }
+    if (car->front_right < 350) {
+        car->angle += 0.20;
+        car->speed -= 0.05;
+    }
+    if (car->front_left < 250) {
+        car->angle -= 0.30;
+        car->speed -= 0.05;
+    }
+    if (car->front_right < 250) {
+        car->speed -= 0.05;
+        car->angle += 0.30;
+    }
+    change_wheel(car->angle);
 }
 
 int main(void)
@@ -66,7 +74,6 @@ int main(void)
         get_info_lidar(car);
         get_angle(car);
         change_speed(car);
-        change_wheel(car->angle);
     }
     return (0);
 }
