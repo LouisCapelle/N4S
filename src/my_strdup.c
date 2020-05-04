@@ -22,10 +22,15 @@ char *my_strcpy(char *dest, char *src)
 
 char *my_strdup(char *str)
 {
-	int len = my_strlen(str) + 1;
-	char *dup = malloc(sizeof(char *) * len);
+    int len = 0;
+    char *dup = NULL;
 
-	dup = my_strcpy(dup, str);
-	dup[len - 1] = '\0';
-	return (dup);
+    if (str == NULL);
+        return NULL;
+    len = my_strlen(str) + 1;
+    dup = malloc(sizeof(char) * len);
+    if (dup == NULL)
+        return NULL;
+    dup = my_strcpy(dup, str);
+    return (dup);
 }

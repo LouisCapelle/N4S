@@ -6,14 +6,15 @@
 */
 
 #include "n4s.h"
+#include <stddef.h>
 
 int	my_strlen(char *str)
 {
-    int	i;
+    int	i = 0;
 
-    i = 0;
-    while (str[i] != '\0'){
-        i = i +  1;
-    }
+    if (str == NULL)
+        return -1;
+    while (str[i] != '\0')
+        i++;
     return i;
 }

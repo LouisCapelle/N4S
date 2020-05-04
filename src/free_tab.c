@@ -11,11 +11,6 @@ void free_tab(char **tab)
 {
     int incre = 0;
 
-    while (tab[incre] != NULL) {
-        if (tab[incre] != NULL)
-            free(tab[incre]);
-        ++incre;
-    }
-    if (tab != NULL)
-        free(tab);
+    while (tab[incre] != NULL)
+        free(tab[incre++]);
 }

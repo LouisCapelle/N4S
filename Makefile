@@ -17,7 +17,7 @@ SRCS	= ./src/main.c 				\
 		  ./src/my_strdup.c 		\
 		  ./src/my_strlen.c 		\
 		  ./src/communication.c		\
-		  ./src/movement_ai.c
+		  ./src/get_info.c
 
 
 OBJS	= $(SRCS:.c=.o)
