@@ -35,6 +35,12 @@ void move_forward(float speed)
     ignore_line();
 }
 
+void move_backward(float speed)
+{
+    dprintf(1, "CAR_BACKWARDS:%.1f\n", speed);
+    ignore_line();
+}
+
 void change_wheel(float value)
 {
     dprintf(1, "WHEELS_DIR:%.1f\n", value);

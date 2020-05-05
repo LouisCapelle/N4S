@@ -16,6 +16,7 @@ void speed_change(data_t *tesla);
 void pass_line(void);
 void change_wheel(float value);
 void move_forward(float speed);
+void move_backward(float speed);
 char *my_strdup(char *str);
 int	my_strlen(char *str);
 void start_simulation(void);
