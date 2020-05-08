@@ -19,9 +19,10 @@ data_t *init_car(data_t *car)
     car->middle = 0;
     car->speed = 0;
     car->angle = 0;
+    return car;
 }
 
-float get_angle(data_t *car)
+void get_angle(data_t *car)
 {
     if (car->front_left > car->front_right)
         car->angle = 0.02;
@@ -60,7 +61,7 @@ void change_speed(data_t *car)
         car->speed = 0.25;  
     if (car->speed <= 0)
         car->speed = 0.2;
-    if (car->front > 150) {
+    if (car->front > 140) {
         move_forward(car->speed);
     }
     else {
@@ -71,7 +72,6 @@ void change_speed(data_t *car)
         move_backward(0.3);
         get_angle(car);
     }
-    dprintf(2, "front: %f  right %f   left %f\n", car->front, car->front_right, car->front_left);
 }
 
 int main(void)
