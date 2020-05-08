@@ -9,6 +9,8 @@
 #define PROTO_H_
 
 void end_simulation(void);
+void get_angle(data_t *car);
+void ignore_line();
 void free_tab(char **tab);
 char **my_str_to_word_array(char *str);
 float calc(float distance);
