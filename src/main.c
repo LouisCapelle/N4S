@@ -22,43 +22,12 @@ data_t *init_car(data_t *car)
     return car;
 }
 
-void get_angle(data_t *car)
+void change_speed_next(data_t *car)
 {
-    if (car->front_left > car->front_right)
-        car->angle = 0.02;
-    else if (car->front_right > car->front_left)
-        car->angle = -0.02;
-    else
-        car->angle = 0.0;
-    if (car->front_left < 350) {
-        car->speed -= 0.15;
-        car->angle -= 0.20;
-    }
-    if (car->front_right < 350) {
-        car->angle += 0.15;
-        car->speed -= 0.15;
-    }
-    if (car->front_left < 250) {
-        car->angle -= 0.31;
-        car->speed -= 0.15;
-    }
-    if (car->front_right < 250) {
-        car->speed -= 0.15;
-        car->angle += 0.31;
-    }
-    change_wheel(car->angle);
-}
-
-void change_speed(data_t *car)
-{
-    if (car->front > 2900 && (car->angle <= 0.08 || car->angle >= -0.08))
-        car->speed = 0.6;
-    else if (car->front > 1800 && (car->angle <= 0.1 || car->angle >= -0.1))
-        car->speed += 0.02;
     if (car->front < 1800)
         car->speed -= 0.45;
     if (car->front < 500)
-        car->speed = 0.25;  
+        car->speed = 0.25;
     if (car->speed <= 0)
         car->speed = 0.2;
     if (car->front > 140) {
@@ -74,6 +43,15 @@ void change_speed(data_t *car)
     }
 }
 
+void change_speed(data_t *car)
+{
+    if (car->front > 2900 && (car->angle <= 0.08 || car->angle >= -0.08))
+        car->speed = 0.6;
+    else if (car->front > 1800 && (car->angle <= 0.1 || car->angle >= -0.1))
+        car->speed += 0.02;
+    change_speed_next(car);
+}
+
 int main(void)
 {
     data_t *car = malloc(sizeof(data_t));
@@ -85,5 +63,5 @@ int main(void)
         get_angle(car);
         change_speed(car);
     }
-    return (0);
+    return 0;
 }

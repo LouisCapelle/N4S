@@ -72,7 +72,8 @@ char **my_str_to_word_array(char *str)
         if (separation(str[incre]) == 0)
             leng_word = leng_word + 1;
         if (separation(str[incre]) == 0 && separation(str[incre + 1]) == 1) {
-            tab[incre_tab] = my_strnstr(&str[incre - leng_word + 1], leng_word);
+            tab[incre_tab] = my_strnstr(&str[incre - leng_word + 1],
+                leng_word);
             ++incre_tab;
             leng_word = 0;
         }
