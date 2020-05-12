@@ -7,7 +7,7 @@
 
 #include "n4s.h"
 
-void ignore_line()
+void ignore_line(void)
 {
     char *line = NULL;
     size_t len = 0;
